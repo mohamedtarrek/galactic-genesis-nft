@@ -1,38 +1,468 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #0a0a1a 50%, #0a0a2a 100%);
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(10, 10, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(105, 102, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6966FF, #8B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.App-link {
-  color: #61dafb;
+.logo span {
+    font-size: 14px;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: all 0.3s;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-btn:hover {
+    color: #6966FF;
+    background: rgba(105, 102, 255, 0.1);
+}
+
+/* Top Connect Button */
+.top-connect-wrapper {
+    text-align: center;
+    padding: 30px 20px 10px 20px;
+}
+
+.custom-connect-btn {
+    background: linear-gradient(270deg, #6966FF, #8B5CF6, #FF69B4, #FFD700, #6966FF) !important;
+    background-size: 300% 300% !important;
+    animation: gradientShift 3s ease infinite !important;
+    padding: 18px 48px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    border-radius: 60px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: transform 0.2s !important;
+    color: white !important;
+}
+
+.custom-connect-btn:hover {
+    transform: scale(1.02);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(105, 102, 255, 0.2);
+    border: 1px solid rgba(105, 102, 255, 0.4);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 14px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.badge::before {
+    content: '🎨';
+    margin-right: 8px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #6966FF, #8B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* NFT Preview Grid */
+.nft-preview {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.nft-card {
+    background: rgba(30, 30, 50, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid rgba(105, 102, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nft-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(105, 102, 255, 0.2);
+    border-color: #6966FF;
+}
+
+.nft-card-image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nft-card-image.genesis {
+    background-image: url('https://iili.io/BLFCF7n.jpg');
+}
+
+.nft-card-image.nebula {
+    background-image: url('https://iili.io/BLFYAYv.jpg');
+}
+
+.nft-card-image.star {
+    background-image: url('https://iili.io/BLFY6uV.jpg');
+}
+
+.nft-card-image.void {
+    background-image: url('https://iili.io/BLFa4ls.jpg');
+}
+
+.rarity-legendary { color: #FFD700; }
+.rarity-epic { color: #9B59B6; }
+.rarity-rare { color: #3498DB; }
+.rarity-mythic { color: #E74C3C; }
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    text-align: center;
+    background: rgba(30, 30, 50, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(105, 102, 255, 0.2);
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #6966FF;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+/* Countdown */
+.countdown {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 30px 0;
+    border: 1px solid rgba(105, 102, 255, 0.3);
+}
+
+.countdown-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 15px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.timer-block {
+    text-align: center;
+}
+
+.timer-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6966FF, #8B5CF6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    min-width: 60px;
+}
+
+.timer-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+/* Connect Section */
+.connect-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.connect-btn {
+    background: linear-gradient(135deg, #6966FF, #8B5CF6);
+    border: none;
+    padding: 18px 48px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(105, 102, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.connect-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.connect-btn:hover::before {
+    left: 100%;
+}
+
+.connect-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(105, 102, 255, 0.6);
+}
+
+.mint-btn {
+    background: linear-gradient(135deg, #6966FF, #8B5CF6);
+    border: none;
+    padding: 18px 48px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(105, 102, 255, 0.4);
+}
+
+.mint-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(105, 102, 255, 0.6);
+}
+
+.mint-btn.processing {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.mint-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.message.success {
+    color: #4CAF50;
+}
+
+.message.error {
+    color: #f44336;
+}
+
+.wallet-requirement {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.wallet-requirement span {
+    color: #6966FF;
+}
+
+/* Recent Claims */
+.recent-claims {
+    background: rgba(30, 30, 50, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid rgba(105, 102, 255, 0.2);
+}
+
+.recent-claims h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.claims-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.claim-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.claim-item .check {
+    color: #4CAF50;
+}
+
+.claim-item .address {
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.claim-item .nft-name {
+    color: #8B5CF6;
+    margin-left: auto;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 60px;
+}
+
+.footer p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+    .nav-links {
+        gap: 15px;
+        justify-content: center;
+    }
+    .nft-card {
+        width: 160px;
+    }
+    .timer {
+        gap: 15px;
+    }
+    .timer-number {
+        font-size: 24px;
+        min-width: 40px;
+    }
+    .custom-connect-btn {
+        padding: 14px 32px !important;
+        font-size: 14px !important;
+    }
+    .connect-btn, .mint-btn {
+        padding: 14px 32px;
+        font-size: 14px;
+    }
+}
+
+/* Wallet Adapter Modal Customization */
+.wallet-adapter-modal-title {
+    color: white !important;
+}
+
+.wallet-adapter-button-trigger {
+    background: linear-gradient(135deg, #6966FF, #8B5CF6) !important;
+    border-radius: 50px !important;
+    padding: 12px 24px !important;
 }
